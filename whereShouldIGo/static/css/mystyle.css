@@ -1,0 +1,21 @@
+body {
+	background-color:#7FFFD4;
+	font-family: "Lato", sans-serif;
+	text-align: center;
+	}
+/* Style the tab content */
+.tabcontent {
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+}
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+}
+h3
+{
+	color: white;
+}

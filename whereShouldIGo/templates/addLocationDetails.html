@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Where should I go?</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../static/css/mystyle.css">
+</head>
+<body>
+	<header>
+		<div class="container-fluid">
+			<center>
+				<h1>Where should I go?</h1>
+				
+				<nav class="navbar navbar-inverse">
+				  <div class="container-fluid">
+					<div class="navbar-header">
+					  <a class="navbar-brand" href="/">Where should I go?</a>
+					</div>
+					<ul class="nav navbar-nav">
+					  <li><a href="/location">Locations</a></li>
+					  <li><a href="/locationDetails">Location details</a></li>
+					  <li><a href="/locationType">Location type</a></li>
+					  <li><a href="/searchByCountry">Search location by country</a></li>
+					  <li><a href="/searchByCity">Search location by city</a></li>
+					</ul>
+					<ul>
+						{% if username %} 
+							<li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>					
+							<h3>{{ username }}</h3>		
+						{% else %}	
+							<li><a href="/signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+							<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						{% endif %}
+					</ul>
+					
+					<ul class="nav navbar-nav">
+						{% if username %} 
+							<li><a href="/addLocationType">Add location type</a></li>
+							<li><a href="/addLocationDetails">Add location details</a></li>	
+							<li><a href="/addLocation">Add location</a></li>
+						{% endif %}
+					</ul>
+					
+				  </div>
+				</nav>
+			</center>
+		</div>
+	</header>
+	
+	
+	<main>
+		<ul class="nav navbar-nav">
+			<div class="container">
+				 <div class = "content">
+					<h2>Add location details</h2>
+							<form action="" method="POST">
+								<select name="nameLocationType">
+									{% for lt in locationType %}
+										<option value="{{lt[0]}}">"{{lt[0]}}"</option>
+									{% endfor %}
+								</select>
+								<input type="name" name="name" id="name" class="form-control" placeholder="Location's name" required autofocus>
+								<input type="text" name="picture" id="picture" class="form-control" placeholder="Picture's name">
+								<input type="text" name="price" id="price" class="form-control" placeholder="Price">
+								<input type="text" name="history" id="history" class="form-control" placeholder="History">
+								<button id="btnLocationDetails" class="btn btn-lg btn-primary btn-block" type="submit" >Add location details</button>
+							</form>
+						</ul>
+					</center>
+				</div>
+			</div>
+		</ul>
+	</main>
+
+	<div class = "footer">
+		<div class="container">
+			<blockquote>
+			<center>
+				<p>Developed by:Bantu Anca</p>
+				<p>Contact information: <a href="mailto:bantu_anca@yahoo.com">
+				bantu_anca@yahoo.com</a>.</p>
+				<p> &#169; 2019</p>
+			</center>
+			</blockquote>
+		</div>
+	</div>
+</body>
+</html>

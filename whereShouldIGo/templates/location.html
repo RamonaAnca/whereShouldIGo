@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Where should I go?</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../static/css/mystyle.css">
+</head>
+<body>
+	<header>
+		<div class="container-fluid">
+			<center>
+				<h1>Where should I go?</h1>
+				
+				<nav class="navbar navbar-inverse">
+				  <div class="container-fluid">
+					<div class="navbar-header">
+					  <a class="navbar-brand" href="/">Where should I go?</a>
+					</div>
+					<ul class="nav navbar-nav">
+					  <li><a href="/location">Locations</a></li>
+					  <li><a href="/locationDetails">Location details</a></li>
+					  <li><a href="/locationType">Location type</a></li>
+					  <li><a href="/searchByCountry">Search location by country</a></li>
+					  <li><a href="/searchByCity">Search location by city</a></li>
+					</ul>
+					<ul>
+						{% if username %} 
+							<li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>					
+							<h3>{{ username }}</h3>		
+						{% else %}	
+							<li><a href="/signUp"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+							<li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+						{% endif %}
+					</ul>
+					
+					<ul class="nav navbar-nav">
+						{% if username %} 
+							<li><a href="/addLocationType">Add location type</a></li>
+							<li><a href="/addLocationDetails">Add location details</a></li>	
+							<li><a href="/addLocation">Add location</a></li>
+						{% endif %}
+					</ul>
+					
+				  </div>
+				</nav>
+			</center>
+		</div>
+	</header>
+	
+	
+	<main>
+		<ul class="nav navbar-nav">
+			<div class="tab-content">
+				<div role="tabpanel" class="tab-pane fade in active" id="basics">
+					<center>
+						<ul>
+							<div class="table-responsive">
+								<table class="table">
+									<tr>
+										<th> Country</th>
+										<th> City</th>
+									</tr>
+									{% for lt in allLocations %}
+										<tr>
+											<td>
+												{{lt[0]}}
+											</td>
+											<td>
+												{{lt[1]}}
+											</td>
+										</tr>
+								   {% endfor %}
+								</table>
+							</div>
+						</ul>
+					</center>
+				</div>
+			</div>
+		</ul>
+	</main>
+</body>
+</html>
